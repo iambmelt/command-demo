@@ -1,3 +1,5 @@
+# Your generated certificate
+*.pem
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
