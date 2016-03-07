@@ -56,16 +56,6 @@
         <DesktopFormFactor>
           <FunctionFile resid="functionFile" />
           
-          <!-- Custom pane, only applies to read form -->
-          <ExtensionPoint xsi:type="CustomPane">
-            <RequestedHeight>100</RequestedHeight> 
-            <SourceLocation resid="customPaneUrl"/>
-            <Rule xsi:type="RuleCollection" Mode="Or">
-              <Rule xsi:type="ItemIs" ItemType="Message"/>
-              <Rule xsi:type="ItemIs" ItemType="AppointmentAttendee"/>
-            </Rule>
-          </ExtensionPoint>
-          
           <!-- Message read form -->
           <ExtensionPoint xsi:type="MessageReadCommandSurface">
             <OfficeTab id="TabDefault">
@@ -125,19 +115,9 @@
         <bt:Image id="blue-icon-16" DefaultValue="https://localhost:8443/images/blue-16.png"/>
         <bt:Image id="blue-icon-32" DefaultValue="https://localhost:8443/images/blue-32.png"/>
         <bt:Image id="blue-icon-80" DefaultValue="https://localhost:8443/images/blue-80.png"/>
-        <!-- Red icon -->
-        <bt:Image id="red-icon-16" DefaultValue="https://localhost:8443/images/red-16.png"/>
-        <bt:Image id="red-icon-32" DefaultValue="https://localhost:8443/images/red-32.png"/>
-        <bt:Image id="red-icon-80" DefaultValue="https://localhost:8443/images/red-80.png"/>
-        <!-- Green icon -->
-        <bt:Image id="green-icon-16" DefaultValue="https://localhost:8443/images/green-16.png"/>
-        <bt:Image id="green-icon-32" DefaultValue="https://localhost:8443/images/green-32.png"/>
-        <bt:Image id="green-icon-80" DefaultValue="https://localhost:8443/images/green-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="functionFile" DefaultValue="https://localhost:8443/FunctionFile/Functions.html"/>
-        <bt:Url id="readTaskPaneUrl" DefaultValue="https://localhost:8443/AppRead/TaskPane/TaskPane.html"/>
-        <bt:Url id="customPaneUrl" DefaultValue="https://localhost:8443/AppRead/CustomPane/CustomPane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="OneDrive"/>
@@ -157,12 +137,6 @@
       <bt:LongStrings>
         <!-- Read mode -->
         <bt:String id="funcReadSuperTipDescription" DefaultValue="Gets the subject of the message or appointment and displays it in the info bar. This is an example of a function button."/>
-        <bt:String id="menuReadSuperTipDescription" DefaultValue="Gets the selected property of the message or appointment and displays it in the info bar. This is an example of a drop-down menu button."/>
-        <bt:String id="paneReadSuperTipDescription" DefaultValue="Opens a pane displaying all available properties of the message or appointment. This is an example of a button that opens a task pane."/>
-        
-        <bt:String id="menuItem1ReadTip" DefaultValue="Gets the item class of the message or appointment and displays it in the info bar." />
-        <bt:String id="menuItem2ReadTip" DefaultValue="Gets the date and time the message or appointment was created and displays it in the info bar." />
-        <bt:String id="menuItem3ReadTip" DefaultValue="Gets the item ID of the message or appointment and displays it in the info bar." />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
