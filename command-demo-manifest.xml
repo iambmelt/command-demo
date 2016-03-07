@@ -10,8 +10,8 @@
   <Version>1.0.0.1</Version>
   <ProviderName>Microsoft Outlook Dev Center</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Add-in Command Demo" />
-  <Description DefaultValue="Adds command buttons to the ribbon in Outlook"/>
+  <DisplayName DefaultValue="Save Attachments to OneDrive" />
+  <Description DefaultValue="Save Message Attachments to OneDrive with a single click"/>
   <IconUrl DefaultValue="https://localhost:8443/images/blue-64.png" />
   <HighResolutionIconUrl DefaultValue="https://localhost:8443/images/blue-80.png" />
   <Hosts>
