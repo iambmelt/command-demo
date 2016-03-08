@@ -93,207 +93,207 @@
     xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
     xsi:type="VersionOverridesV1_0">
 
-  <!-- Define extended requirements (leveraging newer APIs provided by VersionOverrides -->
-  <Requirements>
+    <!-- Define extended requirements (leveraging newer APIs provided by VersionOverrides -->
+    <Requirements>
 
-    <!-- Require minimum this version -->
-    <bt:Sets
-      DefaultMinVersion="1.3">
+      <!-- Require minimum this version -->
+      <bt:Sets
+        DefaultMinVersion="1.3">
 
-      <!-- For the context: Mailbox -->
-      <bt:Set
-        Name="Mailbox" />
-    </bt:Sets>
-  </Requirements>
+        <!-- For the context: Mailbox -->
+        <bt:Set
+          Name="Mailbox" />
+      </bt:Sets>
+    </Requirements>
 
-    <!-- Specifies the Office client application[s] where the Add-In will 'activate' -->
-    <Hosts>
+      <!-- Specifies the Office client application[s] where the Add-In will 'activate' -->
+      <Hosts>
 
-      <Host
-        xsi:type="MailHost">
+        <Host
+          xsi:type="MailHost">
 
-        <DesktopFormFactor>
+          <DesktopFormFactor>
 
-          <!-- Specifies a file that contains JavaScript code to run when an Add-In Command is executed -->
-          <FunctionFile
-            resid="functionFile" />
+            <!-- Specifies a file that contains JavaScript code to run when an Add-In Command is executed -->
+            <FunctionFile
+              resid="functionFile" />
 
-          <!-- Defines where Add-In Commands should appear in the Office UI -->
-          <ExtensionPoint
-            xsi:type="MessageReadCommandSurface">
+            <!-- Defines where Add-In Commands should appear in the Office UI -->
+            <ExtensionPoint
+              xsi:type="MessageReadCommandSurface">
 
-            <!-- Create this Add-In sing the default Office ribbon tab -->
-            <OfficeTab
-              id="TabDefault">
+              <!-- Create this Add-In sing the default Office ribbon tab -->
+              <OfficeTab
+                id="TabDefault">
 
-              <!-- Creates a group of UI controls -->
-              <Group
-                id="msgReadDemoGroup">
+                <!-- Creates a group of UI controls -->
+                <Group
+                  id="msgReadDemoGroup">
 
-                <!-- The name to give this group -->
-                <Label
-                  resid="groupLabel" />
-
-                <!-- Create our button -->
-                <Control
-                  xsi:type="Button"
-                  id="msgReadFunctionButton">
-
-                  <!-- Give our button some text -->
+                  <!-- The name to give this group -->
                   <Label
-                    resid="funcReadButtonLabel" />
+                    resid="groupLabel" />
 
-                  <!-- Supertips provide the user with additional information about the Add-In within the Office UI -->
-                  <Supertip>
+                  <!-- Create our button -->
+                  <Control
+                    xsi:type="Button"
+                    id="msgReadFunctionButton">
 
-                    <!-- The name of our Add-In -->
-                    <Title
-                      resid="funcReadSuperTipTitle" />
+                    <!-- Give our button some text -->
+                    <Label
+                      resid="funcReadButtonLabel" />
 
-                    <!-- The desc. of our Add-In -->
-                    <Description
-                      resid="funcReadSuperTipDescription" />
-                  </Supertip>
+                    <!-- Supertips provide the user with additional information about the Add-In within the Office UI -->
+                    <Supertip>
 
-                  <!-- Contains the Image elements for this button control -->
-                  <Icon>
+                      <!-- The name of our Add-In -->
+                      <Title
+                        resid="funcReadSuperTipTitle" />
 
-                    <!-- Specifies a bunch of different sizes of these images to use -->
-                    <bt:Image
-                      size="16"
-                      resid="blue-icon-16" />
+                      <!-- The desc. of our Add-In -->
+                      <Description
+                        resid="funcReadSuperTipDescription" />
+                    </Supertip>
 
-                    <bt:Image
-                      size="32"
-                      resid="blue-icon-32" />
+                    <!-- Contains the Image elements for this button control -->
+                    <Icon>
 
-                    <bt:Image
-                      size="80"
-                      resid="blue-icon-80" />
-                  </Icon>
+                      <!-- Specifies a bunch of different sizes of these images to use -->
+                      <bt:Image
+                        size="16"
+                        resid="blue-icon-16" />
 
-                  <!-- Specifies the action to perform when the user selects the button -->
-                  <Action
-                    xsi:type="ExecuteFunction">
+                      <bt:Image
+                        size="32"
+                        resid="blue-icon-32" />
 
-                    <!-- The name of the function in functionFile to execute -->
-                    <FunctionName>getSubject</FunctionName>
+                      <bt:Image
+                        size="80"
+                        resid="blue-icon-80" />
+                    </Icon>
 
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
+                    <!-- Specifies the action to perform when the user selects the button -->
+                    <Action
+                      xsi:type="ExecuteFunction">
 
-          <!-- Appointment read form -->
-          <ExtensionPoint
-            xsi:type="AppointmentAttendeeCommandSurface">
+                      <!-- The name of the function in functionFile to execute -->
+                      <FunctionName>getSubject</FunctionName>
 
-            <OfficeTab
-              id="TabDefault">
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
 
-              <Group
-                id="apptReadDemoGroup">
+            <!-- Appointment read form -->
+            <ExtensionPoint
+              xsi:type="AppointmentAttendeeCommandSurface">
 
-                <Label
-                  resid="groupLabel" />
+              <OfficeTab
+                id="TabDefault">
 
-                <!-- Function (UI-less) button -->
-                <Control
-                  xsi:type="Button"
-                  id="apptReadFunctionButton">
+                <Group
+                  id="apptReadDemoGroup">
 
                   <Label
-                    resid="funcReadButtonLabel" />
+                    resid="groupLabel" />
 
-                  <Supertip>
+                  <!-- Function (UI-less) button -->
+                  <Control
+                    xsi:type="Button"
+                    id="apptReadFunctionButton">
 
-                    <Title
-                      resid="funcReadSuperTipTitle" />
+                    <Label
+                      resid="funcReadButtonLabel" />
 
-                    <Description
-                      resid="funcReadSuperTipDescription" />
-                  </Supertip>
+                    <Supertip>
 
-                  <Icon>
+                      <Title
+                        resid="funcReadSuperTipTitle" />
 
-                    <bt:Image
-                      size="16"
-                      resid="blue-icon-16" />
+                      <Description
+                        resid="funcReadSuperTipDescription" />
+                    </Supertip>
 
-                    <bt:Image
-                      size="32"
-                      resid="blue-icon-32" />
+                    <Icon>
 
-                    <bt:Image
-                      size="80"
-                      resid="blue-icon-80" />
-                  </Icon>
+                      <bt:Image
+                        size="16"
+                        resid="blue-icon-16" />
 
-                  <Action
-                    xsi:type="ExecuteFunction">
+                      <bt:Image
+                        size="32"
+                        resid="blue-icon-32" />
 
-                    <FunctionName>getSubject</FunctionName>
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-        </DesktopFormFactor>
-      </Host>
-    </Hosts>
+                      <bt:Image
+                        size="80"
+                        resid="blue-icon-80" />
+                    </Icon>
 
-    <!-- Resources are things that can be used and referenced throughout the manifest multiple times -->
-    <!-- They define things like strings, images, urls -->
-    <Resources>
+                    <Action
+                      xsi:type="ExecuteFunction">
 
-      <!-- Images are part of the Office 'Basic Types' set -->
-      <!-- Let's specify some to use in our Add-In -->
-      <bt:Images>
-        <bt:Image
-          id="blue-icon-16"
-          DefaultValue="https://localhost:8443/images/blue-16.png" />
+                      <FunctionName>getSubject</FunctionName>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
 
-        <bt:Image
-          id="blue-icon-32"
-          DefaultValue="https://localhost:8443/images/blue-32.png" />
+      <!-- Resources are things that can be used and referenced throughout the manifest multiple times -->
+      <!-- They define things like strings, images, urls -->
+      <Resources>
 
-        <bt:Image
-          id="blue-icon-80"
-          DefaultValue="https://localhost:8443/images/blue-80.png" />
-      </bt:Images>
+        <!-- Images are part of the Office 'Basic Types' set -->
+        <!-- Let's specify some to use in our Add-In -->
+        <bt:Images>
+          <bt:Image
+            id="blue-icon-16"
+            DefaultValue="https://localhost:8443/images/blue-16.png" />
 
-      <!-- Urls are also part of the Office 'Basic Types' set -->
-      <bt:Urls>
-        <!-- Declare a path to our functionFile: this is where our method definitions are -->
-        <bt:Url
-          id="functionFile"
-          DefaultValue="https://localhost:8443/FunctionFile/Functions.html" />
-      </bt:Urls>
+          <bt:Image
+            id="blue-icon-32"
+            DefaultValue="https://localhost:8443/images/blue-32.png" />
 
-      <!-- Short strings are usually used to provide the user with hints/tips through the UI -->
-      <!-- Try to keep short strings under 125 chars to aboid truncation -->
-      <bt:ShortStrings>
+          <bt:Image
+            id="blue-icon-80"
+            DefaultValue="https://localhost:8443/images/blue-80.png" />
+        </bt:Images>
 
-        <!-- The name of our Command 'Group' -->
-        <bt:String
-          id="groupLabel"
-          DefaultValue="OneDrive" />
+        <!-- Urls are also part of the Office 'Basic Types' set -->
+        <bt:Urls>
+          <!-- Declare a path to our functionFile: this is where our method definitions are -->
+          <bt:Url
+            id="functionFile"
+            DefaultValue="https://localhost:8443/FunctionFile/Functions.html" />
+        </bt:Urls>
 
-        <!-- The button text for this Add-In -->
-        <bt:String
-          id="funcReadButtonLabel"
-          DefaultValue="Save Attchments to OneDrive" />
-      </bt:ShortStrings>
+        <!-- Short strings are usually used to provide the user with hints/tips through the UI -->
+        <!-- Try to keep short strings under 125 chars to aboid truncation -->
+        <bt:ShortStrings>
 
-      <!-- Long strings may be used to inform the user of more complex information -->
-      <bt:LongStrings>
+          <!-- The name of our Command 'Group' -->
+          <bt:String
+            id="groupLabel"
+            DefaultValue="OneDrive" />
 
-        <!-- The descriptive text for our UI "supertip" -->
-        <bt:String
-          id="funcReadSuperTipDescription"
-          DefaultValue="Gets the subject of the message or appointment and displays it in the info bar. This is an example of a function button." />
-      </bt:LongStrings>
-    </Resources>
-  </VersionOverrides>
+          <!-- The button text for this Add-In -->
+          <bt:String
+            id="funcReadButtonLabel"
+            DefaultValue="Save Attchments to OneDrive" />
+        </bt:ShortStrings>
+
+        <!-- Long strings may be used to inform the user of more complex information -->
+        <bt:LongStrings>
+
+          <!-- The descriptive text for our UI "supertip" -->
+          <bt:String
+            id="funcReadSuperTipDescription"
+            DefaultValue="Gets the subject of the message or appointment and displays it in the info bar. This is an example of a function button." />
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
 </OfficeApp>
