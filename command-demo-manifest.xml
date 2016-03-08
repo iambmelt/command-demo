@@ -94,7 +94,7 @@
                                     <!-- Specifies the action to perform when the user selects the button -->
                                     <Action xsi:type="ExecuteFunction">
                                         <!-- The name of the function in functionFile to execute -->
-                                        <FunctionName>getSubject</FunctionName>
+                                        <FunctionName>saveToOneDrive</FunctionName>
                                     </Action>
                                 </Control>
                             </Group>
@@ -118,7 +118,7 @@
                                         <bt:Image size="80" resid="blue-icon-80" />
                                     </Icon>
                                     <Action xsi:type="ExecuteFunction">
-                                        <FunctionName>getSubject</FunctionName>
+                                        <FunctionName>saveToOneDrive</FunctionName>
                                     </Action>
                                 </Control>
                             </Group>
