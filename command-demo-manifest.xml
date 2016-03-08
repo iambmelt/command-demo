@@ -1,12 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MailApp">
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:type="MailApp">
   <Id>7164e750-dc86-49c0-b548-1bac57abdc7c</Id>
   <Version>1.0.0.1</Version>
   <ProviderName>Microsoft Outlook Dev Center</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Save Attachments to OneDrive" />
 
-  <Description DefaultValue="Save Message Attachments to OneDrive with a single click" />
+  <Description DefaultValue="Save Message Attachments to OneDrive with a single click"/>
   <IconUrl DefaultValue="https://localhost:8443/images/blue-64.png" />
   <HighResolutionIconUrl DefaultValue="https://localhost:8443/images/blue-80.png" />
   <Hosts>
