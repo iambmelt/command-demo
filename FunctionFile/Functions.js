@@ -17,7 +17,7 @@ function statusUpdate(icon, text) {
 }
 
 // Gets the subject of the item and displays it in the info bar.
-function getSubject(event) {
+function saveToOneDrive(event) {
   var subject = Office.context.mailbox.item.subject;
   
   Office.context.mailbox.item.notificationMessages.addAsync("subject", {
