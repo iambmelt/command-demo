@@ -60,7 +60,7 @@
         <SourceLocation
           DefaultValue="https://localhost:8443/FunctionFile/Functions.html"/>
 
-        <RequestedHeight>450</RequestedHeight>
+        <RequestedHeight>100</RequestedHeight>
       </DesktopSettings>
     </Form>
   </FormSettings>
