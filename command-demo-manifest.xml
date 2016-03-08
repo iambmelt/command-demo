@@ -143,7 +143,7 @@
                 <bt:Url id="functionFile" DefaultValue="https://localhost:8443/FunctionFile/Functions.html" />
             </bt:Urls>
             <!-- Short strings are usually used to provide the user with hints/tips through the UI -->
-            <!-- Try to keep short strings under 125 chars to aboid truncation -->
+            <!-- Try to keep short strings under 125 chars to avoid truncation -->
             <bt:ShortStrings>
                 <!-- The name of our Command 'Group' -->
                 <bt:String id="groupLabel" DefaultValue="OneDrive" />
