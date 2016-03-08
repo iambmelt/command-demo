@@ -148,7 +148,7 @@
                 <!-- The name of our Command 'Group' -->
                 <bt:String id="groupLabel" DefaultValue="OneDrive" />
                 <!-- The button text for this Add-In -->
-                <bt:String id="funcReadButtonLabel" DefaultValue="Save Attchments to OneDrive" />
+                <bt:String id="funcReadButtonLabel" DefaultValue="Save Attachments to OneDrive" />
                 <!-- Descriptor for SuperTip -->
                 <bt:String id="funcReadSuperTipTitle" DefaultValue="Gets the subject of the message or appointment" />
             </bt:ShortStrings>
