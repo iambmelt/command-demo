@@ -34,6 +34,12 @@
   <HighResolutionIconUrl
     DefaultValue="https://localhost:8443/images/blue-80.png" />
 
+  <!-- Specific the Office client-type to "host" this Add-In -->
+  <Hosts>
+    <Host
+      Name="Mailbox" />
+  </Hosts>
+
   <!-- Specifies the minimum named subsets of the JavaScript API for Office that the Add-In requires in order to activate -->
   <Requirements>
     <Sets>
@@ -43,14 +49,30 @@
     </Sets>
   </Requirements>
 
+  <!-- These elements support older clients that don't support add-in commands -->
+  <FormSettings>
+    <Form
+      xsi:type="ItemRead">
+      <DesktopSettings>
+        <!-- NOTE: Just reusing the read taskpane page that is invoked by the button
+             on the ribbon in clients that support add-in commands. You can
+             use a completely different page if desired -->
+        <SourceLocation
+          DefaultValue="https://localhost:8443/FunctionFile/Functions.html"/>
+
+        <RequestedHeight>450</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
   <!-- Use the tiered permission levels of the security model for Outlook Add-Ins to control privacy and performance -->
   <Permissions>ReadItem</Permissions>
 
-  <!-- efines a collection of rules and the logical operator to use when evaluating them -->
+  <!-- Defines a collection of rules and the logical operator to use when evaluating them -->
   <Rule
     xsi:type="RuleCollection"
     Mode="Or">
-    <!-- 'ItemIs' defines a rule that evaluates to true if the selected item is of the specified type-->
+    <!-- 'ItemIs' defines a rule that evaluates to true if the selected item is of the specified type -->
     <!-- The rule below is True when the selected item is a Message in Read mode (AKA not composing) -->
     <Rule
       xsi:type="ItemIs"
@@ -70,6 +92,19 @@
   <VersionOverrides
     xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
     xsi:type="VersionOverridesV1_0">
+
+  <!-- Define extended requirements (leveraging newer APIs provided by VersionOverrides -->
+  <Requirements>
+
+    <!-- Require minimum this version -->
+    <bt:Sets
+      DefaultMinVersion="1.3">
+
+      <!-- For the context: Mailbox -->
+      <bt:Set
+        Name="Mailbox" />
+    </bt:Sets>
+  </Requirements>
 
     <!-- Specifies the Office client application[s] where the Add-In will 'activate' -->
     <Hosts>
