@@ -12,10 +12,13 @@
     <DisplayName DefaultValue="Save Attachments to OneDrive" />
     <!-- The description of this Add-In, as shown in 'Manage Add-Ins -->
     <Description DefaultValue="Save Message Attachments to OneDrive with a single click" />
+    <AppDomains>
+        <AppDomain>https://login.microsoftonline.com/</AppDomain>
+    </AppDomains>
     <!-- Specifies the URL of the image that is used to represent the Add-In -->
-    <IconUrl DefaultValue="https://localhost:8443/images/blue-64.png" />
+    <!--<IconUrl DefaultValue="https://localhost:8443/images/blue-64.png" />-->
     <!-- Specifies the URL of the image that is used to represent the Add-In on high DPI screens -->
-    <HighResolutionIconUrl DefaultValue="https://localhost:8443/images/blue-80.png" />
+    <!--<HighResolutionIconUrl DefaultValue="https://localhost:8443/images/blue-80.png" />-->
     <!-- Specific the Office client-type to "host" this Add-In -->
     <Hosts>
         <Host Name="Mailbox" />
@@ -33,7 +36,7 @@
                 <!-- NOTE: Just reusing the read taskpane page that is invoked by the button
              on the ribbon in clients that support add-in commands. You can
              use a completely different page if desired -->
-                <SourceLocation DefaultValue="https://localhost:8443/FunctionFile/Functions.html" />
+                <SourceLocation DefaultValue="https://localhost:8443/Functions.html" />
                 <RequestedHeight>100</RequestedHeight>
             </DesktopSettings>
         </Form>
@@ -140,7 +143,7 @@
             <!-- Urls are also part of the Office 'Basic Types' set -->
             <bt:Urls>
                 <!-- Declare a path to our functionFile: this is where our method definitions are -->
-                <bt:Url id="functionFile" DefaultValue="https://localhost:8443/FunctionFile/Functions.html" />
+                <bt:Url id="functionFile" DefaultValue="https://localhost:8443/Functions.html" />
             </bt:Urls>
             <!-- Short strings are usually used to provide the user with hints/tips through the UI -->
             <!-- Try to keep short strings under 125 chars to avoid truncation -->
