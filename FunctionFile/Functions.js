@@ -5,52 +5,16 @@
 Office.initialize = function() {
 }
 
-function saveToOneDrivebak(event) {
-    if (true) {
-        //if (accessToken === "") {
-        Office
-            .context
-            .ui
-            .displayDialogAsync(
-            "https://localhost:8443/signin.html",
-            {
-                height: 320,
-                width: 240,
-                requireHTTPS: true
-            },
-            function(result) {
-                _dlg = result.value;
-                _dlg.addEventHandler(
-                    Microsoft
-                        .Office
-                        .WebExtension
-                        .EventType
-                        .DialogMessageReceived,
-                    function(arg) {
-                        var message = JSON.parse(arg.message);
-                        console.log("Status: " + message.status);
-                        console.log("Token: " + message.accessToken);
-                        if (message.status == "success") {
-                            _dlg.close();
-                            accessToken = message.accessToken;
-                            doStuff(event, "Brian");
-                        }
-                    });
-            });
-
-    } else {
-        doStuff(event, "Robert");
-    }
-}
-
 // This is our access token to OneDrive
 var accessToken = "";
-
-function saveToOneDrive(event) {
+var _event;
+function saveToOneDrive(eventContext) {
+    _event = eventContext;
     if (!authenticated()) {
-        authenticate(event);
+        authenticate();
     } else {
-        // implement
+        // TODO implement
+        doStuff(accessToken);
     }
 }
 
@@ -58,56 +22,79 @@ function authenticated() {
     return "" !== accessToken;
 }
 
-function authenticate(event) {
-    var CLIENT_ID = "ffe6420a-cc97-4ed6-9928-351b9b0ff697",
+
+function authenticate() {
+    var TENANT_ID = "ddfb6627-bdfd-4532-88cf-bfd6b4404248",
+        AUTH_ENDPOINT = "https://login.microsoftonline.com/"
+            + TENANT_ID
+            + "/oauth2",
+        CLIENT_ID = "ffe6420a-cc97-4ed6-9928-351b9b0ff697",
         REDIRECT_URI = "https://localhost:8443/authorize.html",
         GRAPH_ID = "https://graph.microsoft.com",
 
-        authUrl = "https://login.microsoftonline.com/common/oauth2"
+        authUrl =
+            AUTH_ENDPOINT
             + "/authorize"
             + "?response_type=code"
             + "&client_id=" + CLIENT_ID
             + "&redirect_uri=" + REDIRECT_URI
             + "&resource=" + GRAPH_ID;
-    
+
     Office
         .context
         .ui
-        .displayDialogAsync(
-        authUrl,
-        {
-            height: 320,
-            width: 240,
+        .displayDialogAsync(authUrl, {
+            height: 40,
+            width: 40,
             requireHTTPS: true
-        },
-        function(result) {
-            _dlg = result.value;
-            _dlg.addEventHandler(
-                Microsoft
-                    .Office
-                    .WebExtension
-                    .EventType
-                    .DialogMessageReceived,
-                function(arg) {
-                    var message = JSON.parse(arg.message);
-                    console.log("Status: " + message.status);
-                    console.log("Token: " + message.accessToken);
-                    if (message.status == "success") {
-                        _dlg.close();
-                        accessToken = message.accessToken;
-                        doStuff(event, "Brian");
-                    }
-                });
-        });
+        }, onDialogOpen);
 }
 
-function doStuff(event, token) {
-    Office.context.mailbox.item.notificationMessages.addAsync("subject", {
-        type: "informationalMessage",
-        icon: "blue-icon-16",
-        message: "Token: " + token,
-        persistent: false
-    });
+var dialog;
+function onDialogOpen(result) {
+    dialog = result.value;
+    dialog.addEventHandler(
+        Microsoft
+            .Office
+            .WebExtension
+            .EventType
+            .DialogMessageReceived,
+        onMessageReceived);
+}
+
+function onMessageReceived(msg) {
+    var debug = true;
+    if (debug) {
+        // not currently able to see the msg
+        // return to the parent...
+        dialog.close();
+    } else {
+        var message = JSON.parse(msg.message);
+        console.log("Status: " + message.status);
+        console.log("Token: " + message.accessToken);
+        if (message.status == "success") {
+            dialog.close();
+            accessToken = message.accessToken;
+            doStuff("Brian");
+        } else {
+            dialog.close();
+        }
+    }
+}
+
+function doStuff(token) {
+    _event.completed();
+    Office
+        .context
+        .mailbox
+        .item
+        .notificationMessages
+        .addAsync("subject", {
+            type: "informationalMessage",
+            icon: "blue-icon-16",
+            message: "Token: " + token,
+            persistent: false
+        });
     // TODO implement
-    event.completed();
+    // _event.completed();
 }

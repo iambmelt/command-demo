@@ -13,6 +13,7 @@
     <!-- The description of this Add-In, as shown in 'Manage Add-Ins -->
     <Description DefaultValue="Save Message Attachments to OneDrive with a single click" />
     <AppDomains>
+        <AppDomain>https://localhost:8443/authorize.html</AppDomain>
         <AppDomain>https://login.microsoftonline.com/</AppDomain>
     </AppDomains>
     <!-- Specifies the URL of the image that is used to represent the Add-In -->
