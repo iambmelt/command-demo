@@ -1,6 +1,6 @@
 Required:
-git-bash (or other bash runtime)
-Python 2.x
+ - git-bash (or other bash runtime)
+ - Python 2.x
 
 To create the cert
 
