@@ -4,6 +4,10 @@ Office.initialize = function(reason) {
         // Ok, which of these is supposedly correct?
         //Office.context.ui.messageParentAsync("Hello");
         //Office.context.ui.messageParent("Hello");
+
+        var token = getToken(location.hash.substring(1));
+        console.log(token);
+        window.localStorage.setItem('accessToken', token);
     });
 }
 

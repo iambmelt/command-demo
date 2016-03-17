@@ -14,11 +14,13 @@ function saveToOneDrive(eventContext) {
         authenticate();
     } else {
         // TODO implement
+        console.log(accessToken);
         doStuff(accessToken);
     }
 }
 
 function authenticated() {
+    accessToken = window.localStorage.getItem('accessToken');
     return "" !== accessToken;
 }
 
