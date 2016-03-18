@@ -6,22 +6,23 @@ Office.initialize = function() {
 }
 
 // This is our access token to OneDrive
-var accessToken = "";
 var _event;
 function saveToOneDrive(eventContext) {
     _event = eventContext;
+    // window.localStorage.removeItem('accessToken');
     if (!authenticated()) {
         authenticate();
+        setInterval(function() {
+            doStuff(authenticated());
+        }, 5000);
     } else {
         // TODO implement
-        console.log(accessToken);
-        doStuff(accessToken);
+        doStuff(window.localStorage.getItem('accessToken').slice(0, 5));
     }
 }
 
 function authenticated() {
-    accessToken = window.localStorage.getItem('accessToken');
-    return "" !== accessToken;
+    return window.localStorage.getItem('accessToken');
 }
 
 
@@ -34,12 +35,14 @@ function authenticate() {
         REDIRECT_URI = "https://localhost:8443/authorize.html",
         GRAPH_ID = "https://graph.microsoft.com",
 
+// FIXME - generate an actual nonce
         authUrl =
             AUTH_ENDPOINT
             + "/authorize"
-            + "?response_type=code"
+            + "?response_type=id_token+token"
             + "&client_id=" + CLIENT_ID
-            + "&redirect_uri=" + REDIRECT_URI
+            + "&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Ffiles.readwrite"
+            + "&nonce=23232432465433"
             + "&resource=" + GRAPH_ID;
 
     Office
