@@ -1,31 +1,28 @@
-Office.initialize = function(reason) {
-    //$(document).ready(completeAuth);
-    $(document).ready(function() {
-        // Ok, which of these is supposedly correct?
-        //Office.context.ui.messageParentAsync("Hello");
-        //Office.context.ui.messageParent("Hello");
-    });
-}
+$(document).ready(function() {
+    var token = getToken(window.document.URL);
+    $('#token').text('THe token is:' + JSON.stringify(token));
+    window.localStorage.setItem('accessToken', JSON.stringify(token));
+});
 
-function getToken(qs) {
-    var kvs = qs.split('&');
-
-    for (var i = 0; i < kvs.length; i++) {
-        var kv = kvs[i].split("=");
-        var key = kv[0];
-        var value = kv[1];
-        if (key.toLowerCase() === "code") {
-            return value;
-        }
+function getToken(hash) {
+    var parts = hash.split('?');
+    if (parts && parts.length > 0) {
+        var rightPart = parts.length == 2 ? parts[1] : parts[0];
+        var token = getTokenFromString(rightPart);
+        return token;
     }
 
-    // FIXME handle this condition
-    return "";
+    return '';
 }
 
-function completeAuth() {
-    Office.context.ui.messageParent(JSON.stringify({
-        status: "success",
-        accessToken: getToken(location.hash.substring(1))
-    }));
+function getTokenFromString(hash) {
+    let params = {},
+        regex = /([^&=]+)=([^&]*)/g,
+        m;
+
+    while ((m = regex.exec(hash)) !== null) {
+        params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    }
+
+    return params;
 }
