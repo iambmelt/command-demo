@@ -37,7 +37,7 @@
                 <!-- NOTE: Just reusing the read taskpane page that is invoked by the button
              on the ribbon in clients that support add-in commands. You can
              use a completely different page if desired -->
-                <SourceLocation DefaultValue="https://localhost:8443/Functions.html" />
+                <SourceLocation DefaultValue="https://localhost:8443/index.html" />
                 <RequestedHeight>100</RequestedHeight>
             </DesktopSettings>
         </Form>
@@ -144,7 +144,7 @@
             <!-- Urls are also part of the Office 'Basic Types' set -->
             <bt:Urls>
                 <!-- Declare a path to our functionFile: this is where our method definitions are -->
-                <bt:Url id="functionFile" DefaultValue="https://localhost:8443/Functions.html" />
+                <bt:Url id="functionFile" DefaultValue="https://localhost:8443/index.html" />
             </bt:Urls>
             <!-- Short strings are usually used to provide the user with hints/tips through the UI -->
             <!-- Try to keep short strings under 125 chars to avoid truncation -->
